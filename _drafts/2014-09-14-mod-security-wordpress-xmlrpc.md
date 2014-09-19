@@ -24,6 +24,7 @@ Enter ModSecurity
 =================
 ModSecurity is a Web Application Firewall (WAF) which can be utilized to analyze traffic to and from a web server and perform a variety of actions.
 
+{% gist 20a85ce5187d9dfc159b %}
+
 A [post on Sucri's blog](http://blog.sucuri.net/2014/07/new-brute-force-attacks-exploiting-xmlrpc-in-wordpress.html) details the particulars of this attack in depth.
 
-*[WAF]: Web Application Firewall

@@ -1,6 +1,6 @@
-name: Down the Memory Hole
-description: Blogging about stuffs
-meta_description: "Your New Jekyll Site, Blogging about stuffs"
+name: Memory Hole
+#description: 
+#meta_description: "Your New Jekyll Site, Blogging about stuffs"
 
 markdown: redcarpet
 highlighter: pygments
