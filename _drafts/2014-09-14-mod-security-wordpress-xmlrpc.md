@@ -87,13 +87,9 @@ A malicious party will iterate through username and password combinations until 
 
 Formulating a Defense
 ---------------------
-Individual site administrators can take some basic measures to help ensure they don't fall victim to this sort of password-guessing attack.
+Basic measures such as using strong passwords and limiting authentication attempts can be utilized by individual site administrators in order to defeat automated attacks such as this.
 
-1. Choose a *good* password
-1. Limit authentication attempts.
-1. Disable unneeded features
-
-In my role as a system administrator at a web hosting company it's simply not realistic to expect all customers running WordPress to make these sorts of site-level changes. A higher-level form of defense is required.
+In my role as a system administrator at a web hosting company I'm responsible for servers that host many thousands of WordPress installs. Even if, in the best of all possible worlds, the majority of customers using WordPress were to employ basic security measures, the distributed nature of the attack would still needlessly consume system resources. In order to more efficiently mitigate this attack a facility which operates at a layer above the WordPress application is required.
 
 Enter ModSecurity
 -----------------
@@ -101,7 +97,18 @@ ModSecurity is a Web Application Firewall (WAF), which provides a framework for 
 
 A few approaches may be taken here. If no XML-RPC functionality is required, all access to the script may be denied. Specific XML-RPC method calls may also be filtered based on requirements (e.g. only trackbacks & pingbacks are permitted). In cases where a specific site's requirements are not known, a more generalized approach may be taken.
 
-The code below uses Apache config ```<FilesMatch ...>...</FilesMatch>``` directives in order to limit the scope to which the rules are applied. This facet of the code sample may need to be adjusted for other web servers.
+Given that failed XML-RPC authentication attempts generate a predictable response it's possible to use ModSecurity to track method call failures. The following rules initialize a collection capable of persisting across requests and increment a counter when a method call failure occurs:
+
+```
+SecAction phase:1,nolog,pass,id:19300,\
+    initcol:RESOURCE=%{SERVER_NAME}_%{SCRIPT_FILENAME}
+<FilesMatch "xmlrpc.php">
+    SecRule RESPONSE_BODY "faultString" "id:19301,nolog,phase:4,\
+        t:none,t:urlDecode,setvar:RESOURCE.xmlrpc_bf_counter=+1,\
+        deprecatevar:RESOURCE.xmlrpc_bf_counter=1/300"
+</FilesMatch>
+```
+
 
 {% gist 20a85ce5187d9dfc159b %}
 
