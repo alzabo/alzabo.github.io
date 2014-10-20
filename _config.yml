@@ -6,6 +6,7 @@ markdown: redcarpet
 highlighter: pygments
 logo: false
 paginate: 15
+baseurl: /
 
 # Details for the RSS feed generator
 url:            http://alzabo.io
