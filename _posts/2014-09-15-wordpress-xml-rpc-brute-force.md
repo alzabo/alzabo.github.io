@@ -142,7 +142,7 @@ Notes, Caveats & Further Reading
 
 Both rule set variants have potential to interfere with popular plugins such as Jetpack that rely heavily on XML-RPC. I'm entirely open to contributions designed to limit such interference via whitelisting or other means.
 
-For more details on the particulars of this attack trend, refer to [this post on Sucri's blog](http://blog.sucuri.net/2014/07/new-brute-force-attacks-exploiting-xmlrpc-in-wordpress.html).
+For more details on the particulars of this attack trend, refer to [this post on Sucuri's blog](http://blog.sucuri.net/2014/07/new-brute-force-attacks-exploiting-xmlrpc-in-wordpress.html).
 
 A good place to begin learning more about ModSecurity is the [project wiki on github](https://github.com/SpiderLabs/ModSecurity/wiki).
 
