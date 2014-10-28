@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home
-cover: false
+cover: /assets/images/cover/valley.jpg
 about: false
 ---
 
@@ -14,10 +14,6 @@ about: false
                 </a>
             {% endif %}
             <h1 class="blog-title">{{ site.name }}</h1>
-            <h2 class="blog-description"> 
-                {{ site.description }}. 
-                {% if page.about %} <a href='{{ site.baseurl }}{{ page.about }}'> About me </a> {% endif %}
-            </h2>
         </div>
     </div>
 </header>
