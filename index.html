@@ -1,56 +1,70 @@
----
-layout: default
-title: Home
-cover: /assets/images/cover/valley.jpg
-about: false
----
-
-<header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }})"{% endif %}>
-    <div class="vertical">
-        <div class="site-head-content" class="inner">
-            {% if page.logo %}
-                <a class="blog-logo" href="{{ site.baseurl }}">
-                    <img src="{{ page.logo }}" alt="Blog Logo" />
-                </a>
-            {% endif %}
-            <h1 class="blog-title">{{ site.name }}</h1>
-        </div>
-    </div>
-</header>
-
-<main class="content" role="main">
-
-    {% for post in paginator.posts %}
-
-    <article class="post">
-        <header class="post-header">
-            <span class="post-meta"><time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time> {{!tags prefix="on "}}</span>
-            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-
-        </header>
-        <section class="post-excerpt">
-            {{ post.excerpt }}
-        </section>
-    </article>
-
-    {% endfor %}
-
-    <nav class="pagination" role="pagination">
-
-        {% if paginator.previous_page %}
-          {% if paginator.previous_page == 1 %}
-          <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
-          {% else %}
-          <a class="newer-posts" href="/page{{ paginator.previous_page }}/" title="Previous Page">&laquo; Newer Posts</a>
-          {% endif %}
-        {% endif %}
-
-        <span class="page-number"> Page {{paginator.page}} of {{paginator.total_pages}} </span>
-        
-        {% if paginator.next_page %} 
-        <a class="older-posts" href="/page{{ paginator.next_page }}/" title="Next Page">Older Posts &raquo;</a>
-        {% endif %} 
-    </nav>
-    
-
-</main>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-language" content="en">
+<title>The Tyger</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Cinzel Decorative', cursive;
+        background-color: #222;
+        background-image: linear-gradient(rgba(255,0,0,0), rgb(255, 0, 0));
+        color: #c2c1c1;
+        line-height: 1.6;
+        padding: 2em 2em 5em 2em;
+        font-size: 1.5em;
+        margin-top: 2em;
+    }
+    p {
+        text-align: center;
+        font-size: 1.7em;
+        font-weight: 400;
+        margin-bottom: 2em;
+    }
+</style>
+<meta name="author" content="Ryan White">
+<link href="https://github.com/alzabo" rel="me">
+<link href="https://linkedin.com/in/ryan-white-a2773971" rel="me">
+</head>
+<body>
+<p>
+Tyger Tyger, burning bright,<br /> 
+In the forests of the night;<br /> 
+What immortal hand or eye,<br /> 
+Could frame thy fearful symmetry?<br />
+</p>
+<p>
+In what distant deeps or skies. <br />
+Burnt the fire of thine eyes?<br />
+On what wings dare he aspire?<br />
+What the hand, dare seize the fire?<br />
+</p>
+<p>
+And what shoulder, & what art,<br />
+Could twist the sinews of thy heart?<br />
+And when thy heart began to beat.<br />
+What dread hand? & what dread feet?<br />
+</p>
+<p>
+What the hammer? what the chain,<br />
+In what furnace was thy brain?<br />
+What the anvil? what dread grasp.<br />
+Dare its deadly terrors clasp?<br />
+</p>
+<p>
+When the stars threw down their spears <br />
+And water'd heaven with their tears:<br />
+Did he smile his work to see?<br />
+Did he who made the Lamb make thee?<br />
+</p>
+<p>
+Tyger Tyger burning bright,<br />
+In the forests of the night:<br />
+What immortal hand or eye,<br />
+Dare frame thy fearful symmetry?<br />
+</body>
+</html>
